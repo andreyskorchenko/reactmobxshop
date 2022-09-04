@@ -1,0 +1,36 @@
+@font-face {
+  font-family: fregat;
+  src: url('../public/assets/fonts/fregat.ttf') format('ttf'),
+    url('../public/assets/fonts/fregat.woff') format('woff'),
+    url('../public/assets/fonts/fregat.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: fregatbold;
+  src: url('../public/assets/fonts/fregatbold.ttf') format('ttf'),
+    url('../public/assets/fonts/fregatbold.woff') format('woff'),
+    url('../public/assets/fonts/fregatbold.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #f0f1f3;
+  font-size: 0.875rem;
+  font-family: fregat, sans-serif;
+}
