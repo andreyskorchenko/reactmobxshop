@@ -40,8 +40,9 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        type: 'asset/inline',
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(jp(e)?g|png|gif)$/,
@@ -62,7 +63,11 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
-      '@': resolve(__dirname, 'src'),
+      '@/components': resolve(__dirname, 'src/components'),
+      '@/layouts': resolve(__dirname, 'src/layouts'),
+      '@/pages': resolve(__dirname, 'src/pages'),
+      '@/store': resolve(__dirname, 'src/store'),
+      '@/public': resolve(__dirname, 'public'),
     },
   },
   plugins: [
