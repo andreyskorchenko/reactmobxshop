@@ -1,0 +1,120 @@
+.product {
+  width: calc(25% - 20px);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1 1 240px;
+  margin: 10px;
+  padding: 20px;
+
+  &:hover {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    transform: translate(0, -5px);
+  }
+
+  &__image {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      transition: 0.3s ease-in-out;
+    }
+  }
+
+  &:hover &__image img {
+    transform: scale(0.8);
+  }
+
+  &__name {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 20px;
+
+    h3 {
+      line-height: 30px;
+      text-align: center;
+      font-family: fregatbold, sans-serif;
+      font-size: 1.25rem;
+    }
+  }
+
+  &__basket {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-family: fregatbold, sans-serif;
+    font-size: 0.875rem;
+  }
+
+  &__add {
+    height: 36px;
+    background-color: transparent;
+    border-radius: 18px;
+    border: 1px solid #50c878;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 10px;
+    padding: 0 18px;
+    cursor: pointer;
+
+    span {
+      white-space: nowrap;
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(12px);
+      font-family: fregat, sans-serif;
+      font-size: 0.875rem;
+      color: #50c878;
+    }
+
+    &:hover span {
+      transform: translateX(0);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: 0.3s ease-in-out;
+      transform: translateX(-12px);
+      fill: #50c878;
+      margin-left: 8px;
+      opacity: 0;
+    }
+
+    &:hover svg {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &_inbasket {
+      border: 2px solid #50c878;
+
+      span {
+        transform: translateX(0);
+        font-family: fregatbold, sans-serif;
+      }
+
+      svg {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+}
