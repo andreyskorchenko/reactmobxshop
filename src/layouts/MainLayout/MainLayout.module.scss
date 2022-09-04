@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  padding-top: 50px;
 }
 
 .header {
@@ -12,6 +13,11 @@
   justify-content: space-between;
   overflow: hidden;
   padding: 0 10px;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 
   nav ul {
     display: flex;
