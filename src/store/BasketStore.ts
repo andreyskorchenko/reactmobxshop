@@ -18,6 +18,16 @@ class BasketStore {
       return this.basket.findIndex((product) => product.id === id) >= 0;
     };
   }
+
+  add(product: IProduct): void {
+    const idx = this.basket.findIndex(({ id }) => id === product.id);
+    if (idx >= 0) {
+      this.basket.splice(idx, 1);
+      return;
+    }
+
+    this.basket.push(product);
+  }
 }
 
 export default new BasketStore();
