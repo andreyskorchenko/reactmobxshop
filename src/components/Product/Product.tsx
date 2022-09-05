@@ -11,7 +11,7 @@ export const Product: FC<IProps> = ({ info }) => {
   const addToBasket = () => {};
 
   const convertPrice = (price: number): string => {
-    return price.toLocaleString('ru', {
+    return price.toLocaleString('us', {
       currency: 'usd',
       style: 'currency',
       minimumFractionDigits: 0,
