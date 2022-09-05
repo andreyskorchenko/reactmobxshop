@@ -20,11 +20,11 @@ export const MainLayout: FC = observer((): JSX.Element => {
 
         <Link to={'/basket'}>
           <div className={styles.basket}>
-            {BasketStore.count > 0 && (
+            {BasketStore.count ? (
               <div className={styles.basket__badge}>
                 <p>{BasketStore.count}</p>
               </div>
-            )}
+            ) : null}
 
             <div className={styles.basket__icon}>
               <BasketIcon />
