@@ -1,15 +1,16 @@
 import { FC } from 'react';
-import AddToBasketIcon from '@/public/assets/icons/addtobasket.svg';
+import { observer } from 'mobx-react-lite';
+import cn from 'classnames';
+import BasketStore from '../../store/BasketStore';
 import { IProduct } from '../../types/productTypes';
+import AddToBasketIcon from '@/public/assets/icons/addtobasket.svg';
 import styles from './Product.module.scss';
 
 interface IProps {
   info: IProduct;
 }
 
-export const Product: FC<IProps> = ({ info }) => {
-  const addToBasket = () => {};
-
+export const Product: FC<IProps> = observer(({ info }) => {
   const convertPrice = (price: number): string => {
     return price.toLocaleString('us', {
       currency: 'usd',
@@ -31,11 +32,16 @@ export const Product: FC<IProps> = ({ info }) => {
       <div className={styles.product__basket}>
         <p className={styles.product__price}>{convertPrice(info.price)}</p>
 
-        <button className={styles.product__add} onClick={addToBasket}>
-          <span>{true ? 'In basket' : 'Add in basket'}</span>
+        <button
+          className={cn(styles.product__add, {
+            [styles.product__add_inbasket]: BasketStore.has(info.id),
+          })}
+          onClick={() => BasketStore.add(info)}
+        >
+          <span>{BasketStore.has(info.id) ? 'In basket' : 'Add basket'}</span>
           <AddToBasketIcon />
         </button>
       </div>
     </div>
   );
-};
+});
