@@ -2,7 +2,7 @@ import axios from 'axios';
 import { makeAutoObservable, flow } from 'mobx';
 import { IProduct } from '../types/productTypes';
 
-class ProductsState {
+class ProductsStore {
   private products: IProduct[] = [];
   public isFetching: boolean = false;
   public error: string | null = null;
@@ -15,7 +15,7 @@ class ProductsState {
     return this.products;
   }
 
-  fetchData = flow(function* (this: ProductsState) {
+  fetchData = flow(function* (this: ProductsStore) {
     try {
       this.isFetching = true;
       const response: IProduct[] = yield (yield axios.get<IProduct[]>(
@@ -32,4 +32,4 @@ class ProductsState {
   });
 }
 
-export default new ProductsState();
+export default new ProductsStore();
