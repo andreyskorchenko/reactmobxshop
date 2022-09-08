@@ -1,15 +1,15 @@
 @font-face {
   font-family: fregat;
-  src: url('../public/assets/fonts/fregat.ttf') format('ttf'),
-    url('../public/assets/fonts/fregat.woff') format('woff'),
-    url('../public/assets/fonts/fregat.woff2') format('woff2');
+  src: url('@/public/assets/fonts/fregat.ttf') format('ttf'),
+    url('@/public/assets/fonts/fregat.woff') format('woff'),
+    url('@/public/assets/fonts/fregat.woff2') format('woff2');
 }
 
 @font-face {
   font-family: fregatbold;
-  src: url('../public/assets/fonts/fregatbold.ttf') format('ttf'),
-    url('../public/assets/fonts/fregatbold.woff') format('woff'),
-    url('../public/assets/fonts/fregatbold.woff2') format('woff2');
+  src: url('@/public/assets/fonts/fregatbold.ttf') format('ttf'),
+    url('@/public/assets/fonts/fregatbold.woff') format('woff'),
+    url('@/public/assets/fonts/fregatbold.woff2') format('woff2');
 }
 
 * {
