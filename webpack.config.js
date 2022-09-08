@@ -63,11 +63,11 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
-      '@/components': resolve(__dirname, 'src/components'),
-      '@/layouts': resolve(__dirname, 'src/layouts'),
-      '@/pages': resolve(__dirname, 'src/pages'),
-      '@/store': resolve(__dirname, 'src/store'),
-      '@/public': resolve(__dirname, 'public'),
+      '@/components': resolve(__dirname, './src/components'),
+      '@/layouts': resolve(__dirname, './src/layouts'),
+      '@/pages': resolve(__dirname, './src/pages'),
+      '@/store': resolve(__dirname, './src/store'),
+      '@/public': resolve(__dirname, './public'),
     },
   },
   plugins: [
