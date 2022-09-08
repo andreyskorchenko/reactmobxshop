@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { MainLayout } from '@/layouts';
 import { Products, Basket } from '@/pages';
 
-const App: FC = () => {
+const App: FC = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
