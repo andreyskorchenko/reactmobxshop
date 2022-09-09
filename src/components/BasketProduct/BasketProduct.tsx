@@ -4,7 +4,7 @@ import { convertPrice } from '@/helpers';
 import BasketStore from '@/store/BasketStore';
 import PlusIcon from '@/public/assets/icons/plus.svg';
 import MinusIcon from '@/public/assets/icons/minus.svg';
-import TrashIcon from '../../../public/assets/icons/trash.svg';
+import TrashIcon from '@/public/assets/icons/trash.svg';
 import styles from './BasketProduct.module.scss';
 
 export const BasketProduct: FC<{ info: IBasket }> = ({ info }) => {
