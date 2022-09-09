@@ -1,0 +1,1 @@
+export { BasketProduct } from './BasketProduct';

@@ -1,0 +1,132 @@
+.basket-product {
+  width: calc(100% - 20px);
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  padding: 20px;
+  margin: 10px;
+
+  &:not(:last-child) {
+    border-bottom: 2px solid #f0f1f3;
+  }
+
+  &__image {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__info {
+    flex-grow: 1;
+    padding: 0 20px;
+  }
+
+  &__name {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+
+    h3 {
+      font-family: fregatbold, sans-serif;
+      font-size: 1.25rem;
+    }
+  }
+
+  &__price {
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+
+    h4 {
+      font-family: fregatbold, sans-serif;
+      font-size: 1rem;
+      color: #9e9ea7;
+
+      span {
+        border-left: 2px solid #f0f1f3;
+        margin-left: 10px;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  &__tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__counter {
+    background-color: #f0f1f3;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__plus,
+  &__minus {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: 0.3s ease-in-out;
+    }
+
+    &:not(:disabled):hover svg {
+      transform: scale(1.3);
+    }
+
+    &:disabled {
+      cursor: default;
+
+      svg {
+        fill: #9e9ea7;
+      }
+    }
+  }
+
+  &__quantity {
+    h4 {
+      font-family: fregatbold, sans-serif;
+      font-size: 1rem;
+    }
+  }
+
+  &__remove {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: 0.3s ease-in-out;
+      fill: #9e9ea7;
+    }
+
+    &:not(:disabled):hover svg {
+      transform: scale(1.3);
+      fill: #df2935;
+    }
+  }
+}
