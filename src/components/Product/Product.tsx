@@ -1,24 +1,13 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import cn from 'classnames';
-import BasketStore from '../../store/BasketStore';
-import { IProduct } from '../../types/productTypes';
+import { IProduct } from '@/types';
+import { convertPrice } from '@/helpers';
+import BasketStore from '@/store/BasketStore';
 import AddToBasketIcon from '@/public/assets/icons/addtobasket.svg';
 import styles from './Product.module.scss';
 
-interface IProps {
-  info: IProduct;
-}
-
-export const Product: FC<IProps> = observer(({ info }) => {
-  const convertPrice = (price: number): string => {
-    return price.toLocaleString('us', {
-      currency: 'usd',
-      style: 'currency',
-      minimumFractionDigits: 0,
-    });
-  };
-
+export const Product: FC<{ info: IProduct }> = observer(({ info }) => {
   return (
     <div className={styles.product}>
       <div className={styles.product__image}>
