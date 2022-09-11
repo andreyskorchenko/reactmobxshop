@@ -2,9 +2,29 @@
   background-color: #fff;
   box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   margin: 20px;
+}
+
+.empty {
+  height: calc(100vh - 90px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 64px;
+    height: 64px;
+    fill: #f0f1f3;
+  }
+
+  h3 {
+    margin-top: 20px;
+    font-size: 1rem;
+  }
 }
 
 .items {
