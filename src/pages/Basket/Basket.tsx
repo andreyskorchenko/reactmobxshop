@@ -9,7 +9,7 @@ export const Basket: FC = observer((): JSX.Element => {
   return (
     <div className={styles.container}>
       <div className={styles.items}>
-        {BasketStore.list.map((product) => (
+        {BasketStore.listProducts.map((product) => (
           <BasketProduct info={product} key={product.id} />
         ))}
       </div>

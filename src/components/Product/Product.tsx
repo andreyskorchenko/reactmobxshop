@@ -23,11 +23,13 @@ export const Product: FC<{ info: IProduct }> = observer(({ info }) => {
 
         <button
           className={cn(styles.product__add, {
-            [styles.product__add_inbasket]: BasketStore.has(info.id),
+            [styles.product__add_inbasket]: BasketStore.hasProduct(info.id),
           })}
-          onClick={() => BasketStore.add(info)}
+          onClick={() => BasketStore.addProduct(info)}
         >
-          <span>{BasketStore.has(info.id) ? 'In basket' : 'Add basket'}</span>
+          <span>
+            {BasketStore.hasProduct(info.id) ? 'In basket' : 'Add basket'}
+          </span>
           <AddToBasketIcon />
         </button>
       </div>

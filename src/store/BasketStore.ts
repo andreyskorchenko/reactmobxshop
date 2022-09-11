@@ -1,32 +1,59 @@
 import { makeAutoObservable } from 'mobx';
-import { IProduct } from '../types/productTypes';
+import { IBasket, IProduct } from '@/types';
 
 class BasketStore {
-  public basket: IProduct[] = [];
+  private basket: IBasket[] = [];
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  get count(): string | number {
+  get listProducts(): IBasket[] {
+    return this.basket;
+  }
+
+  get countProducts(): string | number {
     const len = this.basket.length;
     return len > 9 ? '9+' : len;
   }
 
-  get has() {
+  get hasProduct() {
     return (id: number): boolean => {
       return this.basket.findIndex((product) => product.id === id) >= 0;
     };
   }
 
-  add(product: IProduct): void {
+  get totalPrice(): number {
+    return this.basket.reduce(
+      (acc, { price, quantity }) => (acc += price * quantity),
+      0
+    );
+  }
+
+  addProduct(product: IProduct): void {
     const idx = this.basket.findIndex(({ id }) => id === product.id);
     if (idx >= 0) {
       this.basket.splice(idx, 1);
       return;
     }
 
-    this.basket.push(product);
+    this.basket.push({ ...product, quantity: 1 });
+  }
+
+  increaseQuantityProduct(id: number) {
+    this.basket.forEach((product) => {
+      if (product.id === id) product.quantity += 1;
+    });
+  }
+
+  decreaseQuantityProduct(id: number) {
+    this.basket.forEach((product) => {
+      if (product.id === id && product.quantity > 1) product.quantity -= 1;
+    });
+  }
+
+  removeProduct(id: number) {
+    this.basket = this.basket.filter((product) => product.id !== id);
   }
 }
 

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import BasketStore from '../../store/BasketStore';
+import BasketStore from '@/store/BasketStore';
 import BasketIcon from '@/public/assets/icons/basket.svg';
 import styles from './MainLayout.module.scss';
 
@@ -20,9 +20,9 @@ export const MainLayout: FC = observer((): JSX.Element => {
 
         <Link to={'/basket'}>
           <div className={styles.basket}>
-            {BasketStore.count ? (
+            {BasketStore.countProducts ? (
               <div className={styles.basket__badge}>
-                <p>{BasketStore.count}</p>
+                <p>{BasketStore.countProducts}</p>
               </div>
             ) : null}
 

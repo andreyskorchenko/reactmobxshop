@@ -31,7 +31,7 @@ export const BasketProduct: FC<{ info: IBasket }> = ({ info }) => {
         <div className={styles['basket-product__counter']}>
           <button
             className={styles['basket-product__plus']}
-            onClick={() => BasketStore.plusQuantity(info.id)}
+            onClick={() => BasketStore.increaseQuantityProduct(info.id)}
           >
             <PlusIcon />
           </button>
@@ -42,7 +42,7 @@ export const BasketProduct: FC<{ info: IBasket }> = ({ info }) => {
 
           <button
             className={styles['basket-product__minus']}
-            onClick={() => BasketStore.minusQuantity(info.id)}
+            onClick={() => BasketStore.decreaseQuantityProduct(info.id)}
             disabled={info.quantity <= 1}
           >
             <MinusIcon />
@@ -51,7 +51,7 @@ export const BasketProduct: FC<{ info: IBasket }> = ({ info }) => {
 
         <button
           className={styles['basket-product__remove']}
-          onClick={() => BasketStore.remove(info.id)}
+          onClick={() => BasketStore.removeProduct(info.id)}
         >
           <TrashIcon />
         </button>
