@@ -12,9 +12,8 @@ class BasketStore {
     return this.basket;
   }
 
-  get countProducts(): string | number {
-    const len = this.basket.length;
-    return len > 9 ? '9+' : len;
+  get countProducts(): number {
+    return this.basket.length;
   }
 
   get hasProduct() {
