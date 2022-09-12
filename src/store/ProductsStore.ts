@@ -4,7 +4,7 @@ import { IProduct } from '../types/productTypes';
 
 class ProductsStore {
   private products: IProduct[] = [];
-  public isFetching: boolean = false;
+  public isLoading: boolean = false;
   public error: string | null = null;
 
   constructor() {
@@ -17,16 +17,16 @@ class ProductsStore {
 
   fetchData = flow(function* (this: ProductsStore) {
     try {
-      this.isFetching = true;
+      this.isLoading = true;
       const response: IProduct[] = yield (yield axios.get<IProduct[]>(
         'http://localhost:3000/products'
       )).data;
 
       this.products = response;
-      this.isFetching = false;
+      this.isLoading = false;
       this.error = null;
     } catch (err) {
-      this.isFetching = false;
+      this.isLoading = false;
       this.error = 'Failed fetching data';
     }
   });
