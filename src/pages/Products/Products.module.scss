@@ -1,5 +1,7 @@
 .container {
+  min-height: calc(100vh - 50px);
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+  position: relative;
 }
