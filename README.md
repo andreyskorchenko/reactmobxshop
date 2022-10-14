@@ -1,4 +1,4 @@
-# React MobX shop
+# React MobX Shop
 
 ## Git clone
 
