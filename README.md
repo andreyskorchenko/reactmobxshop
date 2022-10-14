@@ -3,13 +3,13 @@
 ## Git clone
 
 ```
-git clone https://github.com/andreyskorchenko/rmxshop.git
+git clone https://github.com/andreyskorchenko/reactmobxshop.git
 ```
 
 ## Change directory
 
 ```
-cd rmxshop
+cd reactmobxshop
 ```
 
 ## Project setup
