@@ -63,6 +63,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
+      '@/api': resolve(__dirname, './src/api'),
       '@/components': resolve(__dirname, './src/components'),
       '@/helpers': resolve(__dirname, './src/helpers'),
       '@/layouts': resolve(__dirname, './src/layouts'),
