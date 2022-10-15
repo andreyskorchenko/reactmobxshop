@@ -1,5 +1,9 @@
 # React MobX Shop
 
+## Preview
+
+![preview](https://github.com/andreyskorchenko/reactmobxshop/blob/master/preview.gif)
+
 ## Git clone
 
 ```
