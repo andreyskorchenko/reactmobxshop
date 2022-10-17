@@ -1,10 +1,10 @@
-import axios from 'axios';
-import { makeAutoObservable, flow } from 'mobx';
-import { IProduct } from '../types/productTypes';
+import { makeAutoObservable, runInAction } from 'mobx';
+import { IProduct } from '@/types';
+import api from '@/api';
 
 class ProductsStore {
   private products: IProduct[] = [];
-  public isLoading: boolean = false;
+  public pending: boolean = false;
   public error: string | null = null;
 
   constructor() {
@@ -15,21 +15,28 @@ class ProductsStore {
     return this.products;
   }
 
-  fetchData = flow(function* (this: ProductsStore) {
-    try {
-      this.isLoading = true;
-      const response: IProduct[] = yield (yield axios.get<IProduct[]>(
-        'http://localhost:3000/products'
-      )).data;
+  setPending(status: boolean): void {
+    this.pending = status;
+  }
 
-      this.products = response;
-      this.isLoading = false;
-      this.error = null;
+  setError(error: string | null): void {
+    this.error = error;
+  }
+
+  async fetchData(abortSignal?: AbortSignal) {
+    try {
+      this.setPending(true);
+      await runInAction(async () => {
+        this.products = await api.products.getProducts(abortSignal);
+      });
+
+      this.setError(null);
     } catch (err) {
-      this.isLoading = false;
-      this.error = 'Failed fetching data';
+      this.setError(`Failed fetching data: ${err}`);
+    } finally {
+      this.setPending(false);
     }
-  });
+  }
 }
 
 export default new ProductsStore();
